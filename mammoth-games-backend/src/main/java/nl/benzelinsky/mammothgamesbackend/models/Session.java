@@ -25,7 +25,7 @@ public class Session {
     private SessionStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "host_username")
+    @JoinColumn(name = "host_id")
     private User host;
 
     @ManyToMany(mappedBy = "currentSessions")
