@@ -6,6 +6,9 @@ import nl.benzelinsky.mammothgamesbackend.mappers.GameMapper;
 import nl.benzelinsky.mammothgamesbackend.repositories.GameRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class GameService {
 
@@ -22,5 +25,13 @@ public class GameService {
                 this.gameRepository.findById(id)
                         .orElseThrow(() ->
                                 new RecordNotFoundException("Game", id)));
+    }
+
+    public List<GameOutputDto> getAllGames() {
+        List<GameOutputDto> allGames = new ArrayList<>();
+        this.gameRepository.findAll().
+                forEach(game ->
+                        allGames.add(GameMapper.toOutputDto(game)));
+        return allGames;
     }
 }
