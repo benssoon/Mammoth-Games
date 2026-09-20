@@ -5,6 +5,8 @@ import nl.benzelinsky.mammothgamesbackend.services.GameService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/games")
 public class GameController {
@@ -18,5 +20,10 @@ public class GameController {
     @GetMapping("/{id}")
     public ResponseEntity<GameOutputDto> getGameById(@PathVariable Long id) {
         return ResponseEntity.ok(this.service.getGameById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<GameOutputDto>> getAllGames() {
+        return ResponseEntity.ok(this.service.getAllGames());
     }
 }
