@@ -12,6 +12,7 @@ import java.util.*;
 @Setter
 @RequiredArgsConstructor
 @Entity
+@Table(name = "users")
 public class User {
     public User() {
 

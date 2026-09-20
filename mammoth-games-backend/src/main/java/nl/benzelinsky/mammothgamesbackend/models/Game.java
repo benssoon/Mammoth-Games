@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @Getter
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "games")
 public class Game {
@@ -36,7 +37,7 @@ public class Game {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "rules_id")
-    private  List<GameRules> rules;
+    private  GameRules rules;
 
     @OneToMany(mappedBy = "game")
     private List<Session> activeSessions = new ArrayList<>();
