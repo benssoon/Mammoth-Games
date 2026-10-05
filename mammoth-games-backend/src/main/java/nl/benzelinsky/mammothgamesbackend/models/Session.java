@@ -1,9 +1,13 @@
 package nl.benzelinsky.mammothgamesbackend.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "sessions")
 public class Session {

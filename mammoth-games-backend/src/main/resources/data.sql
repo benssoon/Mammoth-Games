@@ -8,3 +8,10 @@ VALUES ('Ticket to Ride',
         5,
         'OPEN',
         'A game about trains.');
+
+INSERT INTO sessions (name,
+                      game_id,
+                      status)
+VALUES ('Friday night trains',
+        (SELECT id FROM games WHERE title = 'Ticket to Ride'),
+        'OPEN');
